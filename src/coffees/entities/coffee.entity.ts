@@ -1,4 +1,4 @@
-import { Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, JoinTable, ManyToMany, PrimaryColumnCannotBeNullableError, PrimaryGeneratedColumn } from 'typeorm';
 import { Flavor } from './flavor.entity';
 
 @Entity()
@@ -8,6 +8,9 @@ export class Coffee {
 
         @Column()
         name: string;
+
+        @Column( { nullable: true } )
+        description: string;
 
         @Column()
         brand: string;
